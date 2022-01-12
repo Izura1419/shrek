@@ -1,5 +1,9 @@
 const canvas = document.querySelector('canvas');
 
+//bag killer 
+const trueWidth = innerWidth;
+const trueHeight = innerHeight;
+
 let xpos, ypos, xspeed, yspeed, yRotDoney;
 xspeed = yspeed = 3;
 xpos = ypos = 0;
@@ -59,6 +63,12 @@ loader.load( 'other/scene.gltf', function ( gltf ) {
 	    renderer.render(scene, camera);
 
 	    requestAnimationFrame(render);
+
+	    //killing bags process
+	    if (innerWidth > trueWidth || innerHeight > trueHeight) {
+	    	innerWidth = trueWidth;
+	    	innerHeight = trueHeight;
+	    }
 	  }
 	  requestAnimationFrame(render);
 });
